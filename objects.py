@@ -43,7 +43,7 @@ class SineMovement:
     # Runs once per frame
     def update(self, parent):
         # Moves the parent instance up and down based on sine
-        parent.rect.y += round(math.sin(time.time() * self.speed) * self.waveRange)
+        parent.rect.topleft += pg.Vector2(0, round(math.sin(time.time() * self.speed) * self.waveRange))
 
 
 # Component. When assigned to a class instance, it will graph its movement on the Y axis
