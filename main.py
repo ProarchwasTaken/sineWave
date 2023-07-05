@@ -27,7 +27,7 @@ def Main():
     cube2 = Cube(25, 150, 16, 16, COLOR["red"],
                  components=[
                      # Moves the cube in a wave like motion.
-                     SineMovement(5, 5),  # (speed, waveRange)
+                     SineMovement(3, 1),  # (speed, waveRange)
                      Graphing(COLOR["red"], 1)
                  ])
 
