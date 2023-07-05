@@ -2,13 +2,12 @@ from main import *
 import math
 import numpy as np
 
-
 # Basic cube Class
 class Cube:
     # Runs at instance initialization
     def __init__(self, x, y, width, height, color, components=list()):
         # Basic rect setup
-        self.rect = pg.Rect(x, y, width, height)
+        self.rect = pg.FRect(x, y, width, height)
         self.color = color
 
         # Gives the ability to add extensions to the instance
@@ -43,7 +42,7 @@ class SineMovement:
     # Runs once per frame
     def update(self, parent):
         # Moves the parent instance up and down based on sine
-        parent.rect.topleft += pg.Vector2(0, round(math.sin(time.time() * self.speed) * self.waveRange))
+        parent.rect.y += math.sin(time.time() * self.speed) * self.waveRange
 
 
 # Component. When assigned to a class instance, it will graph its movement on the Y axis
@@ -65,7 +64,7 @@ class Graphing:
         centerX, centerY = parent.rect.centerx, parent.rect.centery
 
         # Creates a new point and add it to the list.
-        self.pointList.append(pg.Rect(centerX, centerY, 4, 4))
+        self.pointList.append(pg.FRect(centerX, centerY, 4, 4))
 
         for point in self.pointList:
             point.x += self.pointSpeed
